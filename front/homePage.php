@@ -111,17 +111,63 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
       background-color: aliceblue;
       opacity: 0.4;
       width: 100%;
+      filter: blur(30x);
     }
 
     .leftcard {
-    
+      
     }
 
     .linha {
       height: 1px;
       background-color: white;
-      margin-top: 20px;
+      margin-top: 30px;
     }
+
+    .linha-vertical {
+      width: 1px;
+      height: 336px;
+      opacity: 0.4;
+      background-color: black;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .leftcard {
+      display: flex;
+      justify-content: left;
+      margin-top: 10px;
+      height: 50px;
+      width: 400px;
+      margin-left: 40px;
+    }
+
+    .rightcard {
+      display: flex;
+      justify-content: right;
+      height: 50px;
+      margin-top: -45px;
+      margin-right: 250px;
+
+    }
+
+    .textleft {
+      margin-top: 110px;
+      margin-left: -380px;
+      width: 440px;
+      text-align: left;
+      font-size: 20px;
+      line-height: 25px;
+      font-family: 'Julius Sans One', sans-serif;
+      font-weight: 800;
+    }
+
+    .textright {
+
+      width: 400px;
+    }
+
 
 
 
@@ -137,10 +183,25 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     JUNTOS POR UM MUNDO MELHOR 
   </p>
 
+  
   <footer>
+    <div class="linha-vertical">
+    </div>
+    <div class="leftcard">
+      <a href="">
+        <img src="./assets/leftCard.svg" alt="">
+      </a>
+      <p class="textleft">Escolha/selecione uma turma por curso e 
+        registre a ocorrência diretamente pelo nome do aluno.</p>
+    </div>
+    <div class="rightcard">
+      <a href="">
+        <img src="./assets/rightCard.svg" alt="">
+      </a>
+      <p class="textright">Escolha/selecione uma turma por curso e 
+        registre a ocorrência diretamente pelo nome do aluno.</p>
+    </div>
     <hr class="linha">
-    <div class="leftcard"></div>
-    <div class="rightcard"></div>
   </footer>
 
 </body>
