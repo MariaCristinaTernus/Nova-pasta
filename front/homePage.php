@@ -14,6 +14,9 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 <html lang="pt-br">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <head>
   <meta charset="UTF-8">
@@ -25,17 +28,18 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         font-family: 'Inter', sans-serif;
     }
     body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      background-image: url('assets/sarinha.png');
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background-image: url('assets/sarinha.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        height: 150vh;
       
     }
 
@@ -87,7 +91,37 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
       margin-left: 25px;
       width: 100px;
       align-self: flex-start; 
-    }       
+    }    
+    
+    .tituloPrincipal {
+      color: white;
+      font-size: 100px;
+      text-align: left;
+      margin-top: 20px;
+      font-family: 'Julius Sans One', sans-serif;
+      width: 430px;
+      line-height: 100px;
+      margin-left: 60px;
+      margin-top: 60px;
+
+    }
+
+    footer {
+      height: 400px;
+      background-color: aliceblue;
+      opacity: 0.4;
+      width: 100%;
+    }
+
+    .leftcard {
+    
+    }
+
+    .linha {
+      height: 1px;
+      background-color: white;
+      margin-top: 20px;
+    }
 
 
 
@@ -99,7 +133,15 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
   <a href="landingPage.php"><img src="assets/loguinho-removebg-preview (1).png" alt="Logo"></a>
   </nav>
 
-  <div class="background-container"></div>
+  <p class="tituloPrincipal">
+    JUNTOS POR UM MUNDO MELHOR 
+  </p>
+
+  <footer>
+    <hr class="linha">
+    <div class="leftcard"></div>
+    <div class="rightcard"></div>
+  </footer>
 
 </body>
 </html>
