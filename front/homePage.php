@@ -1,11 +1,9 @@
 <?php
 session_start();
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    // Se não estiver logado, redireciona para a página de login
     header("Location: ../back/logIn.php");
-    exit();
+    exit(); 
 }
 
 ?>
@@ -65,8 +63,8 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
       text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* Alterado de flex-direction: space-around; */
-      padding-bottom: 20px; /* Adicionado para dar espaço na parte inferior */
+      justify-content: space-between; 
+      padding-bottom: 20px; 
     }
 
     .bem-vindo h1 {
@@ -83,6 +81,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
       height: 70px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
     nav img {
@@ -91,7 +90,14 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
       margin-left: 25px;
       width: 100px;
       align-self: flex-start; 
-    }    
+    }
+    
+    nav a {
+      text-decoration: none;
+      font-size: 20px;
+      margin-right: 30px;
+      color: black;
+    }
     
     .tituloPrincipal {
       color: white;
@@ -109,13 +115,9 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     footer {
       height: 400px;
       background-color: aliceblue;
-      opacity: 0.4;
+      opacity: 0.3;
       width: 100%;
       filter: blur(30x);
-    }
-
-    .leftcard {
-      
     }
 
     .linha {
@@ -139,7 +141,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
       justify-content: left;
       margin-top: 10px;
       height: 50px;
-      width: 400px;
+      width: 532px;
       margin-left: 40px;
     }
 
@@ -155,7 +157,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     .textleft {
       margin-top: 110px;
       margin-left: -380px;
-      width: 440px;
       text-align: left;
       font-size: 20px;
       line-height: 25px;
@@ -166,17 +167,26 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     .textright {
 
       width: 400px;
+      text-align:  left;
+      margin-top: 105px;
+      font-size: 20px;
+      margin-left: -290px;
+      line-height: 25px;
+      font-family: 'Julius Sans One', sans-serif;
+      font-weight: 800;
+      padding-left: 20px;
+      margin-right: -90px;
     }
 
-
-
+    
 
   </style>
 </head>
 <body>
   
   <nav>
-  <a href="landingPage.php"><img src="assets/loguinho-removebg-preview (1).png" alt="Logo"></a>
+  <a href="homePage.php"><img src="assets/loguinho-removebg-preview (1).png" alt="Logo"></a>
+  <a href="configuracaoUser.php"><p><?php echo $_SESSION['user_nome']; ?></p></a>
   </nav>
 
   <p class="tituloPrincipal">
@@ -188,18 +198,17 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <div class="linha-vertical">
     </div>
     <div class="leftcard">
-      <a href="">
+      <a href="criarOcorrencia.php">
         <img src="./assets/leftCard.svg" alt="">
       </a>
       <p class="textleft">Escolha/selecione uma turma por curso e 
         registre a ocorrência diretamente pelo nome do aluno.</p>
     </div>
     <div class="rightcard">
-      <a href="">
+      <a class="img-right" href="historicoOcorrencia.php">
         <img src="./assets/rightCard.svg" alt="">
       </a>
-      <p class="textright">Escolha/selecione uma turma por curso e 
-        registre a ocorrência diretamente pelo nome do aluno.</p>
+      <p class="textright">Verifique o histórico de ocorrências já registradas.</p>
     </div>
     <hr class="linha">
   </footer>

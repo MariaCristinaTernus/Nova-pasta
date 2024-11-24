@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Login</title>
   <style>
 
     * {
@@ -21,7 +21,7 @@
       position: relative;
       
     }
-
+    
     body::before {
       content: '';
       position: fixed;
@@ -153,9 +153,9 @@
 <body>
   
   <nav>
-    <a href="landingPage.php"><img src="assets/loguinho-removebg-preview (1).png" alt="Logo"></a>
+    <a href="./landingPage.php"><img src="assets/loguinho-removebg-preview (1).png" alt="Logo"></a>
   </nav>
-
+    
     <div class="form">
         <form action="../back/logIn.php" method="POST">
             <label for="Email">Email</label>

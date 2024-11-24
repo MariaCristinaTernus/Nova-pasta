@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../front/homePage.php");
             exit();
         } else {
-            header("Location: ../front/login.php?erro=senha");
+            header("Location: ../front/login.php");
             exit();
         }
     } else {
