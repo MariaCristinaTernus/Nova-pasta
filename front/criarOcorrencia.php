@@ -338,34 +338,38 @@ $selectedId = isset($_POST['ocorrencia']) ? $_POST['ocorrencia'] : '';
                 }
             }
             ?>
-            <select id="ocorrencia" name="ocorrencia" required class="descOcorrência" onchange="this.form.submit()">
+
+            <label for="ocorrencia">Ocorrência:</label>
+            <select id="ocorrencia" name="ocorrencia" required class="descOcorrência">
                 <option value="">Selecione uma ocorrência</option>
                 <?php foreach ($ocorrencias as $ocorrencia): ?>
-                    <option value="<?php echo $ocorrencia['id_ocorrencia']; ?>" data-descricao="<?php echo $ocorrencia['descricao']; ?>" <?php echo (isset($selectedId) && $selectedId == $ocorrencia['id_ocorrencia']) ? 'selected' : ''; ?>>
+                    <option value="<?php echo $ocorrencia['id_ocorrencia']; ?>" 
+                            data-descricao="<?php echo $ocorrencia['descricao']; ?>"
+                            data-tipo="<?php echo $ocorrencia['tipo']; ?>" 
+                            <?php echo ($selectedId == $ocorrencia['id_ocorrencia']) ? 'selected' : ''; ?>>
                         <?php echo $ocorrencia['descricao']; ?>
                     </option>
                 <?php endforeach; ?>
             </select>
 
-            <?php
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ocorrencia'])) {
-                $selectedId = $_POST['ocorrencia'];
-                $selectedDescricao = '';
-                $selectedTipo = '';
+            <div id="cartaoOcorrencia" style="display: none; margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #f9f9f9;"></div>
 
-                foreach ($ocorrencias as $ocorrencia) {
-                    if ($ocorrencia['id_ocorrencia'] == $selectedId) {
-                        $selectedDescricao = $ocorrencia['descricao'];
-                        $selectedTipo = $ocorrencia['tipo'];
-                        break;
-                    }
+            <script>
+            document.getElementById('ocorrencia').addEventListener('change', function() {
+                var selectedOption = this.options[this.selectedIndex];
+                var cartao = document.getElementById('cartaoOcorrencia');
+                
+                if (this.value) {
+                    var descricao = selectedOption.getAttribute('data-descricao');
+                    var tipo = selectedOption.getAttribute('data-tipo');
+                    cartao.innerHTML = '<strong>Ocorrência Selecionada:</strong> <span>' + descricao + '</span>';
+                    cartao.style.display = 'block';
+                    cartao.style.border = '2px solid ' + (tipo === 'Grave' ? 'blue' : 'red');
+                } else {
+                    cartao.style.display = 'none';
                 }
-                $borderColor = $selectedTipo == 'simples' ? 'blue' : 'red';
-                echo '<div id="cartaoOcorrencia" style="margin-top: 20px; padding: 10px; border: 1px solid ' . $borderColor . '; border-radius: 5px; background-color: #f9f9f9;">';
-                echo '<strong>Ocorrência Selecionada:</strong> <span>' . $selectedDescricao . '</span>';
-                echo '</div>';
-            }
-            ?>
+            });
+            </script>
 
             <input type="submit" value="Registrar Ocorrência" class="btn-registrar">
         </form>
